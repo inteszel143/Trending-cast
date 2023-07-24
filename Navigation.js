@@ -12,6 +12,8 @@ import { Payments, Profile, Lists, Topics, Bookmarks, Purchases, Monetization, M
 
 import { Ionicons } from '@expo/vector-icons';
 import TweetDetailsScreen from './screens/homeStack/TweetDetailsScreen';
+import NewMessage from './screens/homeStack/NewMessage'
+import NewTweet from './screens/homeStack/NewTweet'
 import { View, Image, Pressable, StatusBar, useColorScheme } from 'react-native'
 
 
@@ -84,7 +86,22 @@ function HomeStackGroup() {
                     presentation: "modal",
 
                 }}
-
+            />
+            <HomeStack.Screen
+                name='NewMessage'
+                component={NewMessage}
+                options={{
+                    // presentation: "transparentModal"
+                    presentation: "modal"
+                }}
+            />
+            <HomeStack.Screen
+                name='NewTweet'
+                component={NewTweet}
+                options={{
+                    headerShown: false,
+                    presentation: "fullScreenModal"
+                }}
             />
         </HomeStack.Navigator>
     )
@@ -153,7 +170,7 @@ function TabGroup({ navigation }) {
                     ),
                     headerRight: () => (
                         <Pressable>
-                            
+                          
                         </Pressable>
                     )
                 }} />

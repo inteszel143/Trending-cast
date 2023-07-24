@@ -1,9 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View, Dimensions, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
-const { height, width } = Dimensions.get("window")
+import { useNavigation } from '@react-navigation/native';
 
 export default function Setting() {
+    const { navigate } = useNavigation();
+
     return (
         <SafeAreaView style={styles.container} >
             <Text
@@ -38,6 +40,7 @@ export default function Setting() {
                     alignItems: 'center',
                     marginBottom: 50,
                 }}
+                onPress={() => navigate("NewMessage")}
             >
                 <Text
                     style={{
@@ -51,12 +54,13 @@ export default function Setting() {
 
             {/* BUTTOM */}
 
-            <View
+            <TouchableOpacity
                 style={{
                     position: 'absolute',
                     bottom: 25,
                     right: 20,
                 }}
+                onPress={() => navigate("NewMessage")}
             >
                 <View
                     style={{
@@ -70,7 +74,7 @@ export default function Setting() {
                 >
                     <Ionicons name="mail-unread-outline" size={25} color={'#FFFFFF'} />
                 </View>
-            </View>
+            </TouchableOpacity>
 
 
 

@@ -1,6 +1,9 @@
 import React from "react";
 import { StyleSheet, View, Image, Text, useColorScheme } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
+
+
+
 const tweetActions = (retweets, comments, likes) => {
   const theme = useColorScheme();
   return (
@@ -14,11 +17,11 @@ const tweetActions = (retweets, comments, likes) => {
           style={styles.actionButton}
           name="comment"
           size={21}
-          color={theme === "dark" ? "gray" : "#000"}
+          color={theme === "dark" ? "#fff" : "#000"}
         />
-        <Text style={styles.actionText}>{comments}</Text>
+        <Text style={[styles.actionText, { color: theme === "dark" ? "#fff" : "#000" }]}>{comments}</Text>
       </View>
-      <View style={styles.elemAction}>
+      <View style={[styles.elemAction]}>
         {/* <Image
           style={styles.actionButton}
           source={require("../assets/retweet.png")}
@@ -27,9 +30,9 @@ const tweetActions = (retweets, comments, likes) => {
           style={styles.actionButton}
           name="retweet"
           size={22}
-          color={theme === "dark" ? "gray" : "#000"}
+          color={theme === "dark" ? "#fff" : "#000"}
         />
-        <Text style={styles.actionText}>{retweets}</Text>
+        <Text style={[styles.actionText, { color: theme === "dark" ? "#fff" : "#000" }]}>{retweets}</Text>
       </View>
       <View style={styles.elemAction}>
         {/* <Image
@@ -40,9 +43,9 @@ const tweetActions = (retweets, comments, likes) => {
           style={styles.actionButton}
           name="heart"
           size={21}
-          color={theme === "dark" ? "gray" : "#000"}
+          color={theme === "dark" ? "#fff" : "#000"}
         />
-        <Text style={styles.actionText}>{likes}</Text>
+        <Text style={[styles.actionText, { color: theme === "dark" ? "#fff" : "#000" }]}>{likes}</Text>
       </View>
       {/* <Image
         style={styles.actionButton}
@@ -52,7 +55,7 @@ const tweetActions = (retweets, comments, likes) => {
         style={styles.actionButton}
         name="share-apple"
         size={23}
-        color={theme === "dark" ? "gray" : "#000"}
+        color={theme === "dark" ? "#fff" : "#000"}
       />
     </View>
   );
@@ -184,7 +187,6 @@ const styles = StyleSheet.create({
   },
   actionText: {
     fontSize: 12,
-    color: "#444",
   },
   tweetContentContainer: {
     flexShrink: 1,
