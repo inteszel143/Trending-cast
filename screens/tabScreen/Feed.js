@@ -18,7 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Ionicons } from '@expo/vector-icons';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-
+import { FlashList } from "@shopify/flash-list";
 
 export default function Feed() {
   const navigation = useNavigation();
@@ -38,31 +38,31 @@ export default function Feed() {
       setIsOpen(true);
     }, 100)
   }
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        // <Pressable onPress={() => navigation.openDrawer()}>
-        //   <Image
-        //     source={require("../../assets/images/beto.jpeg")}
-        //     style={{ width: 40, height: 40, borderRadius: 100, marginLeft: 15 }}
-        //   />
-        // </Pressable>
-        <Pressable
-          onPress={handlePresentModal}
-        >
-          <Image
-            source={require('../../assets/images/shining.png')}
-            style={{
-              width: 28,
-              height: 28,
-              marginRight: 17,
-            }}
-          />
-        </Pressable>
-      ),
-      // headerRight: () => <Button title="Test" />
-    });
-  }, []);
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     headerRight: () => (
+  //       // <Pressable onPress={() => navigation.openDrawer()}>
+  //       //   <Image
+  //       //     source={require("../../assets/images/beto.jpeg")}
+  //       //     style={{ width: 40, height: 40, borderRadius: 100, marginLeft: 15 }}
+  //       //   />
+  //       // </Pressable>
+  //       <Pressable
+  //         onPress={handlePresentModal}
+  //       >
+  //         <Image
+  //           source={require('../../assets/images/shining.png')}
+  //           style={{
+  //             width: 28,
+  //             height: 28,
+  //             marginRight: 17,
+  //           }}
+  //         />
+  //       </Pressable>
+  //     ),
+  //     // headerRight: () => <Button title="Test" />
+  //   });
+  // }, []);
 
   function ViewBottomModalSheet() {
     return (
@@ -120,7 +120,7 @@ export default function Feed() {
   return (
     <BottomSheetModalProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: theme === "dark" ? "#000" : '#FFFFFF' }}>
-        <FlatList
+        <FlashList
           data={tweets.slice(0, 30)}
           keyExtractor={(item) => {
             return item.id;
@@ -135,6 +135,7 @@ export default function Feed() {
           // )}
           ListHeaderComponentStyle={{ backgroundColor: "#ccc" }}
           ItemSeparatorComponent={() => <View style={styles.divider} />}
+          estimatedItemSize={200}
         />
 
         {/* Bottom Button */}
