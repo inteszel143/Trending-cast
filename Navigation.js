@@ -170,7 +170,7 @@ function TabGroup({ navigation }) {
                     ),
                     headerRight: () => (
                         <Pressable>
-                          
+
                         </Pressable>
                     )
                 }} />
@@ -349,7 +349,8 @@ export default function Navigation() {
         <NavigationContainer
             theme={currentTheme === "dark" ? DarkTheme : DefaultTheme}
         >
-            <StatusBar style="auto" />
+            <StatusBar
+                style="auto" />
             {/* <HomeStackGroup /> */}
             < DrawerGroup />
         </NavigationContainer >
